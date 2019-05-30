@@ -1,0 +1,40 @@
+{
+  "name": "get-your-sound-wave",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev:build": "webpack --mode development -w",
+    "start": "node dist/app.bundle.js",
+    "dev": "nodemon dist/app.bundle.js",
+    "build": "babel src -d lib"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "babel": "^6.23.0",
+    "body-parser": "^1.19.0",
+    "chart.js": "^2.8.0",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "jade": "~1.11.0",
+    "mongodb": "^3.2.6",
+    "morgan": "~1.9.1",
+    "multer": "^1.4.1",
+    "nodemon": "^1.19.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@babel/node": "^7.4.5",
+    "@babel/plugin-proposal-object-rest-spread": "^7.4.4",
+    "@babel/preset-env": "^7.4.5",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.6",
+    "babel-preset-env": "^1.7.0",
+    "shebang-loader": "0.0.1",
+    "webpack": "^4.32.2",
+    "webpack-cli": "^3.3.2",
+    "webpack-node-externals": "^1.7.2"
+  }
+}
