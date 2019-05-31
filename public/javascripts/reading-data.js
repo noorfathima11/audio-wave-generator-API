@@ -73,3 +73,5 @@ axios({
     }, 100)
 
 }, () => console.log("unable to decode"))
+
+module.exports = 'reading-data'

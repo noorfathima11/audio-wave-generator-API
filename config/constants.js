@@ -19,7 +19,7 @@ function envConfig(env){
   }
 }
 
-export default{
+module.export = {
   ...defaultConfig,
   ...envConfig(process.env.NODE_ENV)
 }

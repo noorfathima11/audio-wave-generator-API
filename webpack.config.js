@@ -5,7 +5,7 @@ module.exports = {
     target : 'node',
     externals : [nodeExternals()],
     entry : {
-        'app' : './bin/www'
+        'index' : './public/index.html'
     },
     'output' : {
         path : path.join(__dirname, 'dist'),

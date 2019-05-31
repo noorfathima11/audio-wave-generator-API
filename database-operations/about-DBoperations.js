@@ -1,7 +1,7 @@
 const mongodb = require('mongodb')
 const assert = require('assert')
 
-const url = 'mongodb://localhost:27017/test'
+const url = 'mongodb://localhost:27017/soundWaveDB'
 //using the mongo driver
 const mongoClient = require('mongodb').MongoClient
 const objectId = require('mongodb').ObjectID
@@ -20,5 +20,6 @@ mongoClient.connect(url, (err, database) =>{
 })
 
 exports.POSToperation = function () {
-  
+  assert.equal(null, error)
+
 }
