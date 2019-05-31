@@ -1,9 +1,12 @@
 const express = require('express')
 const router = express.Router()
 
-const soundWaveModel = require('../models/soundWave-model')
+const mongodb = require('mongodb')
+const assert = require('assert')
 
-router.get('/', (req, res, next) => {  
+//const soundWaveModel = require('../models/soundWave-model')
+
+router.get('/', (req, res, next) => {
     res.status(200).json({
         message : "Waveform data was fetched"
 
@@ -15,7 +18,6 @@ router.post('/', (req, res, next) => {
         filename: req.body.filename,
         format: req.body.format
     }
-    console.log(soundWave)
     res.status(201).json({
         message: "This is temporary 'waveform' data created until DB is designed and data fetched from the DB",
         soundWave : soundWave

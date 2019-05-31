@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev:build": "webpack --mode development -w",
-    "start": "node dist/app.bundle.js",
+    "start": "node bin/www.js",
     "dev": "nodemon dist/app.bundle.js",
     "build": "babel src -d lib"
   },
