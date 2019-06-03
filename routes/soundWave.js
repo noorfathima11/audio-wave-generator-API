@@ -2,7 +2,6 @@ const express = require('express')
 const router = express.Router()
 
 //const readAudioData = require('../analysis/read-audio-data')
-//const mongodb = require('mongodb')
 const mongoClient = require('mongodb').MongoClient
 const assert = require('assert')
 // const objectId = require('mongodb').ObjectID
@@ -16,7 +15,10 @@ const storage = multer.diskStorage({
     cb(null, new Date().toISOString() + '-' + file.originalname)
   }
 })
-
+//polling
+//scaling
+//status
+//ffmpeg
 const fileFilter = (req, file, cb) => {
   if(file.mimetype === 'audio/wav'){
     cb(null, true)

@@ -33,7 +33,8 @@ axios({
 
     const containers = []
     const spaceBetweenConts = 0.2
-    const numberOfContainers = 100
+    const numberOfContainers = 10
+    //duration of slice
     const containerDataSize = Math.floor(array16.length / numberOfContainers)
     console.log('containerDataSize', containerDataSize)
     //5366
