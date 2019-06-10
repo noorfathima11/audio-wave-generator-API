@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 
-const aboutModel = require('../database-operations/about-DBoperations')
+const aboutModel = require('../rabbitMQ/sender')
 
 
 /* GET about page. */

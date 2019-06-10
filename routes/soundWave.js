@@ -1,10 +1,7 @@
 const express = require('express')
 const router = express.Router()
 
-//const readAudioData = require('../analysis/read-audio-data')
-const mongoClient = require('mongodb').MongoClient
-const assert = require('assert')
-// const objectId = require('mongodb').ObjectID
+const senderMQ = require('../rabbitMQ/sender')
 
 const multer = require('multer')
 const storage = multer.diskStorage({
@@ -32,65 +29,15 @@ const upload = multer({
   //fileFilter: fileFilter
 })
 
-//const {Readable} = require('stream')
-
-const url = 'mongodb://localhost:27017/soundWaveDB'
-
-//const soundWaveDBOperations = require('../database-operations/soundWave-DBoperations')
-//const aboutDBOperations = require('assert')
-
-//const soundWaveModel = require('../models/soundWave-model')
 
 router.get('/', (req, res, next) => {
-    let resultArray = []
-    let db
-    mongoClient.connect(url, function(err, database){
-      assert.equal(null, err)
-      db = database.db('soundWaveDB')
-     /*const findAudioFile = db.collection('audioFile').find({}, {musicFile: 1, _id: 0}).toArray(function(err, docs){
-        console.log(docs)
-      })
-      console.log('here', Object.keys(findAudioFile).length)
-      console.log('findAudioFile', findAudioFile)*/
 
-      const pointer = db.collection('audioFile').find()
-      pointer.forEach(function(doc, err){
-        assert.equal(null,err)
-        console.log('dochere', typeof(doc))
-        //readAudioData.readData(doc)
-        resultArray.push(doc)
-      }, function(){
-        database.close()
-        res.status(200).json({
-          message : "Waveform data was fetched",
-          resultArray : resultArray
-      })
-      })
-    })
 })
 
 router.post('/', upload.single('musicFile'), (req, res, next) => {
     console.log(req.file)
-    const itemToInsert = {
-        filename: req.body.filename,
-        format: req.body.format,
-        musicFile: req.file.path
-    }
-    let db
-    mongoClient.connect(url, function(err, database){
-      assert.equal(null, err)
-      db = database.db('soundWaveDB')
-      db.collection('audioFile').insertOne(itemToInsert, function(err, result){
-        assert.equal(null, err)
-        console.log('item inserted')
-        database.close()
-      })
-
-    })
-    res.status(201).json({
-        message: "This DB is designed and data fetched from the DB",
-        itemInserted : itemToInsert
-    })
+    const audioFilePath = req.file.path
+    senderMQ.send(audioFilePath)
 })
 
 module.exports = router

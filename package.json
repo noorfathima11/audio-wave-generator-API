@@ -9,7 +9,8 @@
     "build": "babel src -d lib"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "amqplib": "^0.5.3",
+    "axios": "^0.19.0",
     "babel": "^6.23.0",
     "body-parser": "^1.19.0",
     "express": "~4.16.1",

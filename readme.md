@@ -7,11 +7,26 @@ Project Workflow:
 - Creating a server to accept requests
 - Defining the routes:
     This microservice has two endpoints:
-    1) An 'About' endpoint which will return the information about the application
-    2) A 'Waveform' endpoint which will return the waveform data
+    1) An 'About' endpoint which will return the information about the application.
+    2) A 'Waveform' endpoint which will return the waveform data.
 - Database design:
   - If we want to POST a new sound file data with the filename and format and if we want to store it in the database - here I have used mongoDB collections
-  -
+  - Through POST request filename, format and file can be submitted.
+  - The file will be stored on the disk and it's location stored on the database.
+  - Through GET request, all the waveform data can be accessed.
+
+Message Queue and System Design: https://www.youtube.com/watch?v=oUJbuFMyBDk
+- Will be using RabbitMQ
+
+Message Broker:
+
+
+
+
+
+
+
+
 
 
 - Uploading the music file:
@@ -79,3 +94,5 @@ https://pedromtavares.wordpress.com/2012/12/28/streaming-audio-on-the-web-with-n
 https://rodic.fr/blog/libavcodec-tutorial-decode-audio-file/
 
 https://en.wikipedia.org/wiki/Data_structure_alignment
+
+https://www.3pillarglobal.com/insights/rabbitmq-understanding-message-broker
