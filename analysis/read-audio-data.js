@@ -1,4 +1,4 @@
-const fs = require('fs')
+
 
 exports.readData = function(audioFilePath) {
   console.log('filePath', audioFilePath)
