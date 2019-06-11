@@ -20,16 +20,7 @@ Message Queue and System Design: https://www.youtube.com/watch?v=oUJbuFMyBDk
 
 Message Broker:
 
-
-
-
-
-
-
-
-
-
-- Uploading the music file:
+Uploading the music file:
   Accepting and storing files:
   - We do this for soundWave - We POST a new music file
     We accept a music file
@@ -37,6 +28,11 @@ Message Broker:
     Also store an entry in the DB with the location of the stored image
   We can send this back with a GET request
   - So we accept the music file in the POST route of /soundWaveform
+
+HTML page:
+Uploading a file
+- To create a drop down menu: <select> One of the suggested option is required
+- To create a custom button: File API 
 
 
 

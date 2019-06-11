@@ -1,28 +1,29 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <!--<meta charset="UTF-8">-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Audio Data</title>
-    <link rel="stylesheet" type="text/css" href="./stylesheets/style.css">
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Sound Wave Generator</title>
 </head>
 <body>
+  <h1>Sound Wave Generator</h1>
+  <form method="POST">
+    <p>
+      <label> Select File Format</label>
+      <select id="fileformat">
+      <option>wav</option>
+      <option>mp3</option>
+      <option>ogg</option>
+      <option>aac</option>
+    </select>
+    </p>
+    <p>
+      <label> Upload audio file </label>
+      <input type="file" id="audio-file">
+    </p>
+  </form>
 
-    <audio id="audio-element" src="sample.wav" controls="controls"></audio>
-
-    <svg viewbox="0 0 100 100" class="waveform-container" preserveAspectRatio="none">
-            <rect class="waveform-bg" x="0" y="0" height="100" width="100"/>
-            <rect id="waveform-progress" class="waveform-progress" x="0" y="0" height="100" width="0"/>
-    </svg>
-
-    <svg height="0" width="0">
-            <defs>
-                <clippath id="waveform-mask"></clippath>
-            </defs>
-    </svg>
-
-        <script src="javascripts/reading-data.js"></script>
 
 </body>
 </html>
