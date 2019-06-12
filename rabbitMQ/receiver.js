@@ -1,5 +1,6 @@
 const amqp = require('amqplib/callback_api')
 const fs = require('fs')
+let finalData
 
 exports.receive = function(){
   amqp.connect('amqp://localhost', (error, connection) => {
@@ -11,9 +12,9 @@ exports.receive = function(){
       channel.consume(queue, (audioFilePath) => {
       console.log(`Received` + ' ' + audioFilePath.content.toString())
       fs.readFile(audioFilePath.content.toString(), (err, data) => {
-        console.log('data', data)
         if (err) throw err
-        console.log('data', data)
+        console.log('finalData', data)
+        return data
       })
       },{noAck : true})
     })

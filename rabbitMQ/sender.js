@@ -2,6 +2,8 @@ const amqp = require('amqplib/callback_api')
 const readAudioData = require('../analysis/read-audio-data')
 const receiverMQ = require('./receiver')
 
+let data
+
 exports.send = (audioFilePath => {
 amqp.connect('amqp://localhost', (error, connection) => {
   connection.createChannel((error, channel) => {
@@ -12,10 +14,10 @@ amqp.connect('amqp://localhost', (error, connection) => {
     channel.sendToQueue(queue, Buffer.from(audioFilePath))
     console.log('message sent from sender')
   })
-  setTimeout(() => {
+  /*setTimeout(() => {
     connection.close()
-    process.exit(0) }, 500)
-}, receiverMQ.receive())
+    process.exit(0) }, 500)*/
+}, data = receiverMQ.receive())
 })
 
 /*exports.send = function(audioFilePath) {

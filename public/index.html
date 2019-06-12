@@ -6,40 +6,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Sound Wave Generator</title>
+  <link rel="stylesheet" type="text/css" href="./stylesheets/style.css">
 </head>
 
 <body>
   <h1>Sound Wave Generator</h1>
-  <form id="file-upload" method="POST" enctype="multipart/form-data" action="../routes/soundWave.js">
+  <!--<form id="file-upload" method="POST" enctype="multipart/form-data">-->
     <div id="container">
       <div id="upload-container">
-        <div id="select-container">
-          <label> Select File Format</label>
-          <select id="fileformat">
-            <option>wav</option>
-            <option>mp3</option>
-            <option>ogg</option>
-            <option>aac</option>
-          </select>
-        </div>
-
-        <div id="upload-choose-container">
-          <input type="file" accept="audio/mpeg, audio/ogg, audio/wav" id="upload-file" />
+        <div id="upload-choose-container" class="upload-choose">
+            <label> Select File Format</label>
+            <select id="fileformat">
+              <option>wav</option>
+              <option>mp3</option>
+              <option>ogg</option>
+              <option>aac</option>
+            </select>
+          <input type="file" accept="audio/mpeg, audio/ogg, audio/wav" id="upload-file" name='musicFile' />
           <button id="choose-upload-button">Upload a file</button>
         </div>
 
-        <div id="upload-file-final-container">
-          <span id="file-name">
-            <button id="upload-button">Upload</button>
+        <div id="upload-file-final-container" class="upload-file-final">
+          <span id="file-name"></span>
+            <button id="upload-button" type="submit" name='musicFile'>Upload</button>
             <button id="cancel-button">Cancel</button>
-          </span>
+
         </div>
 
-        <div id="upload-progress"><span id="upload-percentage"></span> % uploaded</div>
+        <div id="upload-progress" class="upload-progress"><span id="upload-percentage"></span> % uploaded</div>
         <div id="error-message"></div>
       </div>
     </div>
-  </form>
+ <!-- </form>-->
+  <script src="javascripts/rendering-data.js"></script>
 </body>
 
 </html>

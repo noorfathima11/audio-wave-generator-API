@@ -32,13 +32,13 @@ Uploading the music file:
 HTML page:
 Uploading a file
 - To create a drop down menu: <select> One of the suggested option is required
-- To create a custom button: File API 
+- To create a custom button: File API
 
 
 
 Dependencies:
 - Express
-- Multer (for handling multipart/form-data requests)
+- Multer (for handling multipart/form-data requests) - express doesn't parse multi-part form data
 - MongoDB (official mongodb nodejs driver)
 
 Node-module dependencies:
