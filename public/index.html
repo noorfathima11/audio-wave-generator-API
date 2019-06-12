@@ -1,29 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Sound Wave Generator</title>
 </head>
+
 <body>
   <h1>Sound Wave Generator</h1>
-  <form method="POST">
-    <p>
-      <label> Select File Format</label>
-      <select id="fileformat">
-      <option>wav</option>
-      <option>mp3</option>
-      <option>ogg</option>
-      <option>aac</option>
-    </select>
-    </p>
-    <p>
-      <label> Upload audio file </label>
-      <input type="file" id="audio-file">
-    </p>
+  <form id="file-upload" method="POST" enctype="multipart/form-data" action="../routes/soundWave.js">
+    <div id="container">
+      <div id="upload-container">
+        <div id="select-container">
+          <label> Select File Format</label>
+          <select id="fileformat">
+            <option>wav</option>
+            <option>mp3</option>
+            <option>ogg</option>
+            <option>aac</option>
+          </select>
+        </div>
+
+        <div id="upload-choose-container">
+          <input type="file" accept="audio/mpeg, audio/ogg, audio/wav" id="upload-file" />
+          <button id="choose-upload-button">Upload a file</button>
+        </div>
+
+        <div id="upload-file-final-container">
+          <span id="file-name">
+            <button id="upload-button">Upload</button>
+            <button id="cancel-button">Cancel</button>
+          </span>
+        </div>
+
+        <div id="upload-progress"><span id="upload-percentage"></span> % uploaded</div>
+        <div id="error-message"></div>
+      </div>
+    </div>
   </form>
-
-
 </body>
+
 </html>

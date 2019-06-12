@@ -12,6 +12,7 @@ const storage = multer.diskStorage({
     cb(null, new Date().toISOString() + '-' + file.originalname)
   }
 })
+
 //polling
 //scaling
 //status
@@ -31,7 +32,7 @@ const upload = multer({
 
 
 router.get('/', (req, res, next) => {
-  
+
 
 })
 
