@@ -1,6 +1,6 @@
 const amqp = require('amqplib/callback_api')
 const fs = require('fs')
-let finalData
+let finalPath
 
 exports.receive = function(){
   amqp.connect('amqp://localhost', (error, connection) => {
@@ -20,4 +20,3 @@ exports.receive = function(){
     })
   })
 }
-

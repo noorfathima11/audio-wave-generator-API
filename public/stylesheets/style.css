@@ -66,3 +66,9 @@ button {
 	color: #c0392b;
 	margin: 20px 0 0 0;
 }
+
+#get-data-container{
+  display:none;
+}
+
+
