@@ -5,7 +5,7 @@ const testConfig = {}
 const prodConfig = {}
 
 const defaultConfig = {
-  PORT : process.env.PORT || 3000
+  PORT : process.env.PORT || 000
 }
 
 function envConfig(env){

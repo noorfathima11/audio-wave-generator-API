@@ -6,53 +6,22 @@ Project Workflow:
 - Initializing the project with npm
 - Creating a server to accept requests
 - Defining the routes:
-    This microservice has two endpoints:
-    1) An 'About' endpoint which will return the information about the application.
-    2) A 'Waveform' endpoint which will return the waveform data.
-- Database design:
-  - If we want to POST a new sound file data with the filename and format and if we want to store it in the database - here I have used mongoDB collections
-  - Through POST request filename, format and file can be submitted.
-  - The file will be stored on the disk and it's location stored on the database.
-  - Through GET request, all the waveform data can be accessed.
+    This microservice has only one endpoints:
+    2) A 'Waveform' (/soundWave) endpoint which will return the waveform data.
 
 Message Queue and System Design: https://www.youtube.com/watch?v=oUJbuFMyBDk
 - Will be using RabbitMQ
 
-Message Broker:
 
 Uploading the music file:
   Accepting and storing files:
   - We do this for soundWave - We POST a new music file
     We accept a music file
-    Store it on server
-    Also store an entry in the DB with the location of the stored image
-  We can send this back with a GET request
-  - So we accept the music file in the POST route of /soundWaveform
+    Store it on disk
 
-HTML page:
-Uploading a file
-- To create a drop down menu: <select> One of the suggested option is required
-- To create a custom button: File API
-
-
-
-Dependencies:
-- Express
-- Multer (for handling multipart/form-data requests) - express doesn't parse multi-part form data
-- MongoDB (official mongodb nodejs driver)
-
-Node-module dependencies:
-- Stream (Node module that handles streaming of data)
-- Babel
-
-
-
-More:
-- Audio upload must be resumable if it has been stopped
-- Audio upload can be cancellable at any point of time
-
-Version 2:
-- Want to get waveform as stream and convert stream to image
+- We need to run a function on the remote server and wait for the result
+- We use RPC. We build RabbitMQ to build an RPC system
+- The client sends a request message and a server sends a response message . In order to receive a response we need to send a callback queue address with the request. 
 
 This is the version with processing done on the server
 

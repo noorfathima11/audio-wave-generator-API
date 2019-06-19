@@ -4,7 +4,6 @@ const path = require('path')
 const logger = require('morgan')
 const bodyParser = require('body-parser')
 
-const aboutRouter = require('./routes/about')
 const soundWaveRouter = require('./routes/soundWave')
 
 var app = express()
@@ -13,10 +12,6 @@ app.use(logger('dev'))
 app.use('/uploads', express.static('uploads'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
-app.use(express.static(path.join(__dirname, 'public')))
-// view engine setup
-app.set('views', path.join(__dirname, 'views'))
-app.set('view engine', 'jade')
 
 app.use('*.js', (req, res, next) => {
   res.set('Content-Type', 'text/javascript')
@@ -39,7 +34,6 @@ app.use((req, res, next) => {
   next()
 })
 
-app.use('/about', aboutRouter);
 app.use('/soundwave', soundWaveRouter)
 
 // catch 404 and forward to error handler
@@ -55,7 +49,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error')
+  //res.render('error')
 })
 
 module.exports = app
